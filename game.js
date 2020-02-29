@@ -1,6 +1,7 @@
 var canvas = document.getElementById("canvas");
 var ctx = canvas.getContext('2d');
 canvas.addEventListener('click', onClick, false);
+canvas.addEventListener('touchstart', onClick, false);
 var x = 180
 var y = 500
 var gameover = false
@@ -15,6 +16,14 @@ var list
 var yspeed = 0
 var pipex = []
 var scorey = -30
+let lastTouch = 0;
+document.addEventListener('touchend', event => {
+  const now = window.performance.now();
+  if (now - lastTouch <= 500) {
+    event.preventDefault();
+  }
+  lastTouch = now;
+}, true);
 function draw(){
 
     ctx.clearRect(0,0,450,680)
