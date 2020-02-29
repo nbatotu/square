@@ -1,0 +1,10 @@
+body{
+    background-color:gray
+}
+canvas{
+    background-color:white;
+}
+@font-face {
+	font-family: 'pixeled';
+	src: url('Pixeled.ttf');
+}
