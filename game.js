@@ -32,17 +32,9 @@ function draw(){
     }
     if(gameover == true){
         yspeed += 0.1
-        if (y>1500){
-            scoree = true
-            
-        }
+        ctx.fillText('GAMEOVER',225,100)
     }
-    if (scoree = true){
-        ctx.fillText(score,225,scorey)
-        if(scorey < 100){
-            scorey +=10
-        }
-    }
+ 
     if (isstart == true){
         for(i=0;i<pipes.length;i++){
             ctx.fillRect(pipex[i],pipes[i],400,30)
