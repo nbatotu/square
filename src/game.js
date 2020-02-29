@@ -43,7 +43,6 @@ function draw(){
             scorey +=10
         }
     }
-
     if (isstart == true){
         for(i=0;i<pipes.length;i++){
             ctx.fillRect(pipex[i],pipes[i],400,30)
