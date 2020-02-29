@@ -1,7 +1,13 @@
 var canvas = document.getElementById("canvas");
 var ctx = canvas.getContext('2d');
-canvas.addEventListener('click', onClick, false);
-canvas.addEventListener('touchstart', onClick, false);
+var ua = window.navigator.userAgent.toLowerCase();
+//canvas.addEventListener('click', onClick, false);
+if(ua.indexOf("windows nt") !== -1) {
+    canvas.addEventListener('click', onClick, false);
+}else{
+    canvas.addEventListener('touchstart', onClick, false);
+}
+
 var x = 180
 var y = 500
 var gameover = false
