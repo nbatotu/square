@@ -1,6 +1,7 @@
 var canvas = document.getElementById("canvas");
 var ctx = canvas.getContext('2d');
 var ua = window.navigator.userAgent.toLowerCase();
+var toc = false
 //canvas.addEventListener('click', onClick, false);
 if(ua.indexOf("windows nt") !== -1) {
     canvas.addEventListener('click', onClick, false);
@@ -8,6 +9,7 @@ if(ua.indexOf("windows nt") !== -1) {
     canvas.addEventListener('touchstart', onClick, false);
 }
 
+var count = false
 var x = 180
 var y = 500
 var gameover = false
@@ -19,6 +21,7 @@ var scoree = false
 var pipes = []
 var pipespeed = 2.5
 var list
+var retry = false
 var yspeed = 0
 var pipex = []
 var scorey = -30
@@ -99,9 +102,20 @@ function draw(){
         speed = 0
         y += yspeed
         pipespeed =0
+        
+        setTimeout(ret,1000)
 
     }
+    if(retry==true){
+        ctx.fillText("SCORE:"+score,225,250)
+        ctx.fillText("[RETRY]",225,450)
+    }
+    function ret(){
+        retry = true  
+    }
 }
+
+
 
 function add(){
     if(isstart == true && gameover == false){
@@ -111,15 +125,34 @@ function add(){
     
 }
 
-function onClick(e){    
-    if (isstart == false){
+function onClick(e){
+    if (isstart == false && count == false){
         isstart = true
-        console.log(isstart)
+    
     }
     if (angle == true){
         angle=false
     }else{
         angle=true
+    }
+    if(retry==true){
+          x = 180
+          y = 500
+
+          score = 0
+          angle = false
+          isstart = false
+          speed = 0
+          scoree = false
+          pipes = []
+          pipespeed = 2.5
+          list
+          retry = false
+          yspeed = 0
+          pipex = []
+          scorey = -30
+          gameover = false
+         lastTouch = 0;
     }
 }
 
