@@ -4,9 +4,9 @@ var ua = window.navigator.userAgent.toLowerCase();
 var toc = false
 //canvas.addEventListener('click', onClick, false);
 if(ua.indexOf("windows nt") !== -1) {
-    canvas.addEventListener('click', onClick, false);
+    document.addEventListener('click', onClick, false);
 }else{
-    canvas.addEventListener('touchstart', onClick, false);
+    document.addEventListener('touchstart', onClick, false);
 }
 
 var count = false
