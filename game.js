@@ -50,6 +50,10 @@ function draw(){
     }
     if(gameover == true){
         yspeed += 0.1
+        speed = 0
+        y += yspeed
+        pipespeed =0
+        retry = true
         ctx.fillText('GAMEOVER',225,100)
     }
  
@@ -98,20 +102,12 @@ function draw(){
         ctx.fillText("Tap!",225,460)
     }
 
-    if(gameover == true){
-        speed = 0
-        y += yspeed
-        pipespeed =0
-        
-        setTimeout(ret,1000)
 
-    }
     if(retry==true){
+        ctx.font = "35px pixeled";
         ctx.fillText("SCORE:"+score,225,250)
-        ctx.fillText("[RETRY]",225,450)
-    }
-    function ret(){
-        retry = true  
+        ctx.font = "28px pixeled";
+        ctx.fillText("-TAP TO RETRY-",225,450)
     }
 }
 
